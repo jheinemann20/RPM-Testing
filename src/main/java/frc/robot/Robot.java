@@ -66,7 +66,7 @@ public class Robot extends TimedRobot {
     shooterPID.setFF(kFF);
     shooterPID.setOutputRange(1, 1);
 
-    shooterMotor.setOpenLoopRampRate(0.5);
+    shooterMotor.setOpenLoopRampRate(2);
   }
 
   /**
