@@ -122,7 +122,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     System.out.println(shooterMotor.get());
-    shooterPID.setReference(0, ControlType.kVelocity);
+    shooterPID.setReference(0.1, ControlType.kVelocity);
   }
 
   /**
