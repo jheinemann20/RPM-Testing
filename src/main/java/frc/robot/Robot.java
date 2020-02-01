@@ -120,7 +120,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
-    shooterPID.setReference(rpm, ControlType.kVelocity);
+    shooterPID.setReference(rpm / 5700, ControlType.kVelocity);
   }
 
   /**
