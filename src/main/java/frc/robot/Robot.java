@@ -115,6 +115,8 @@ public class Robot extends TimedRobot {
      *  com.revrobotics.ControlType.kVelocity
      *  com.revrobotics.ControlType.kVoltage
      */
+
+    System.out.println(m_motor.get());
     double setPoint = 0.1*maxRPM;
     m_pidController.setReference(setPoint, ControlType.kVelocity);
     
