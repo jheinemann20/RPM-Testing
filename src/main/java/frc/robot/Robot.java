@@ -67,6 +67,7 @@ public class Robot extends TimedRobot {
     shooterPID.setOutputRange(1, 1);
 
     shooterMotor.setOpenLoopRampRate(2);
+    shooterMotor.setClosedLoopRampRate(2);
   }
 
   /**
@@ -120,6 +121,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
+    System.out.println(shooterEncoder.getVelocity());
     shooterPID.setReference(rpm / 5700, ControlType.kVelocity);
   }
 
