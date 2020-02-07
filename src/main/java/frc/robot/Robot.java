@@ -125,11 +125,11 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     System.out.println(shooterEncoder.getVelocity());
-    if (myController.getAButtonPressed()) {
+    if (myController.getAButton()) {
       shooterPID.setReference(100, ControlType.kVelocity);
-    } else if (myController.getXButtonPressed()) {
+    } else if (myController.getXButton()) {
       shooterPID.setReference(2000, ControlType.kVelocity);
-    } else if (myController.getYButtonPressed()) {
+    } else if (myController.getYButton()) {
       shooterPID.setReference(4000, ControlType.kVelocity);
     } else {
       shooterMotor.set(0);
