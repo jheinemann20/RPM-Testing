@@ -15,6 +15,7 @@ import com.revrobotics.ControlType;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -35,6 +36,8 @@ public class Robot extends TimedRobot {
   @JsonIgnore // encoder needed
   private CANEncoder shooterEncoder;
   private CANPIDController shooterPID;
+
+  private XboxController myController = new XboxController(0);
 
   private double kP, kI, kD, kIz, kFF, rpm;
 
@@ -122,7 +125,15 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     System.out.println(shooterEncoder.getVelocity());
-    shooterPID.setReference(rpm, ControlType.kVelocity);
+    if (myController.getAButtonPressed()) {
+      shooterPID.setReference(100, ControlType.kVelocity);
+    } else if (myController.getXButtonPressed()) {
+      shooterPID.setReference(2000, ControlType.kVelocity);
+    } else if (myController.getYButtonPressed()) {
+      shooterPID.setReference(4000, ControlType.kVelocity);
+    } else {
+      shooterMotor.set(0);
+    }
     // shooterMotor.set(0.1);
   }
 
