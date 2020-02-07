@@ -53,8 +53,8 @@ public class Robot extends TimedRobot {
     shooterPID = shooterMotor.getPIDController();
 
     kP = 5e-5; 
-    kI = 1e-6;
-    kD = 0.2; 
+    kI = 0;//1e-6;
+    kD = 0; 
     kIz = 0; 
     kFF = 0;
     rpm = 60; // 5700 max
