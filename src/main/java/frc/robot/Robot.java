@@ -57,7 +57,7 @@ public class Robot extends TimedRobot {
     kD = 0; 
     kIz = 0; 
     kFF = 0;
-    rpm = 60; // 5700 max
+    rpm = 500; // 5700 max
 
     shooterPID.setP(kP);
     shooterPID.setI(kI);
