@@ -53,7 +53,7 @@ public class Robot extends TimedRobot {
     shooterPID = shooterMotor.getPIDController();
 
     kP = 5e-5; 
-    kI = 0;//1e-6;
+    kI = 1e-6;
     kD = 0; 
     kIz = 0; 
     kFF = 0;
@@ -122,7 +122,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     System.out.println(shooterMotor.get());
-    shooterPID.setReference(60, ControlType.kSmartVelocity);
+    shooterPID.setReference(rpm, ControlType.kSmartVelocity);
   }
 
   /**
